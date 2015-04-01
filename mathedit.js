@@ -129,12 +129,12 @@ var MathEditor = {
         if (typeof element.addEventListener != 'undefined') {
             element.addEventListener('keyup', function(e) {
                 //console.log('keyup: ' + e.keyCode); 
-                e.srcElement.matheditor.redraw();
+                e.target.matheditor.redraw();               
             }, false);
         } else if (typeof element.attachEvent != 'undefined') {
             element.attachEvent('onkeyup', function(e) {
                 //console.log('keyup: ' + e.keyCode);
-                e.srcElement.matheditor.redraw();
+                e.target.matheditor.redraw();
             });
         }
         element.matheditor.addToolbar();
