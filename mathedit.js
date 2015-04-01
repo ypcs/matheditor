@@ -142,11 +142,8 @@ var MathEditor = {
     },
     addToolbar: function() {
         //this.addButton(function(e) {e.selectionInsert('`', '`')}, 'testi', 'x', 0);
-        this.addButton(function() {}, 'testi', 'x', 0);
-        this.addButton(function() {}, 'testi', 'x', 0);
-        this.addButton(function() {}, 'testi', 'x', 0);
-        this.addButton(function() {}, 'testi', 'x', 0);
-        this.addButton(function() {}, 'testi', 'x', 0);
+        
+        this.addButton('testi', 'x', function() {}, 0);
     },
     redraw: function() {
         //this._data.previewElement.textContent = this._data.editor.value;
