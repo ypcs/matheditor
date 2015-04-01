@@ -83,7 +83,8 @@ var MathEditor = {
 
         if (typeof(MathJax) == 'undefined') {
             var script = document.createElement('script');
-            script.src = 'MathJax/MathJax.js?config=AM_HTMLorMML';
+            //script.src = 'MathJax/MathJax.js?config=AM_HTMLorMML';
+            script.src = 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_HTMLorMML'
             var body = document.getElementsByTagName('body')[0];
             body.appendChild(script);
         }
@@ -145,15 +146,15 @@ var MathEditor = {
         
         this.addButton('fn', 'x', function() {}, 0);
         this.addButton('fn', 'x', function() {}, 0);
-        this.addButton('fn', 'x', function() {}, 0);
-        this.addButton('fn', 'x', function() {}, 0);
-        this.addButton('fn', 'x', function() {}, 0);
+        this.addButton('alpha', 'x', function() {}, 0);
+        this.addButton('beta', 'x', function() {}, 0);
+        this.addButton('pi', 'x', function() {}, 0);
         this.addButton('der', 'x', function() {}, 0); // 
         this.addButton('int', 'x', function() {}, 0); // int_0^1 f(x)dx
         this.addButton('sin', 'x', function() {}, 0);
         this.addButton('cos', 'x', function() {}, 0);
         this.addButton('tan', 'x', function() {}, 0);
-        this.addButton('fn', 'x', function() {}, 0);
+        this.addButton('-->', 'x', function() {}, 0);
         this.addButton('fn', 'x', function() {}, 0);
         
     },
