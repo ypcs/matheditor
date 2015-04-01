@@ -143,7 +143,19 @@ var MathEditor = {
     addToolbar: function() {
         //this.addButton(function(e) {e.selectionInsert('`', '`')}, 'testi', 'x', 0);
         
-        this.addButton('testi', 'x', function() {}, 0);
+        this.addButton('fn', 'x', function() {}, 0);
+        this.addButton('fn', 'x', function() {}, 0);
+        this.addButton('fn', 'x', function() {}, 0);
+        this.addButton('fn', 'x', function() {}, 0);
+        this.addButton('fn', 'x', function() {}, 0);
+        this.addButton('der', 'x', function() {}, 0); // 
+        this.addButton('int', 'x', function() {}, 0); // int_0^1 f(x)dx
+        this.addButton('sin', 'x', function() {}, 0);
+        this.addButton('cos', 'x', function() {}, 0);
+        this.addButton('tan', 'x', function() {}, 0);
+        this.addButton('fn', 'x', function() {}, 0);
+        this.addButton('fn', 'x', function() {}, 0);
+        
     },
     redraw: function() {
         //this._data.previewElement.textContent = this._data.editor.value;
