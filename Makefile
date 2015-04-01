@@ -3,6 +3,10 @@ SCRIPTS = mathedit.min.js
 
 all:
 
+clean:
+	rm -f styles.css styles.css.map
+	rm -f mathedit.min.js
+
 $(STYLES): styles.sass
 	sass styles.sass styles.css
 
