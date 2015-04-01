@@ -29,7 +29,7 @@ var MathEditor = {
         btn.matheditor = this._data.element.matheditor;
 
         btn.value = title;
-        btn.innerHTML = '<i class=""></i> ' + title;
+        btn.innerHTML = '<i class="todo"></i> ' + title;
 
         if (typeof btn.addEventListener != 'undefined') {
             btn.addEventListener('click', function(e) {
@@ -81,6 +81,13 @@ var MathEditor = {
         console.log('Enable MathEditor for element "' + element.id + '".');
         element.matheditor = this._clone(this);
 
+        if (typeof(MathJax) == 'undefined') {
+            var script = document.createElement('script');
+            script.src = 'MathJax/MathJax.js?config=AM_HTMLorMML';
+            var body = document.getElementByTagName('body')[0];
+            body.appendChild(script);
+        }
+
         element.matheditor._data.editor = element;
 
         var currentOrder = 0;
@@ -130,6 +137,16 @@ var MathEditor = {
                 e.srcElement.matheditor.redraw();
             });
         }
+        element.matheditor.addToolbar();
+    },
+    addToolbar: function() {
+        /*this.addButton(function() {}, 'testi', 'x', 0);
+        this.addButton(function() {}, 'testi', 'x', 0);
+        this.addButton(function() {}, 'testi', 'x', 0);
+        this.addButton(function() {}, 'testi', 'x', 0);
+        this.addButton(function() {}, 'testi', 'x', 0);
+        this.addButton(function() {}, 'testi', 'x', 0);
+*/
     },
     redraw: function() {
         //this._data.previewElement.textContent = this._data.editor.value;
