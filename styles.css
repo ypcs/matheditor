@@ -2,7 +2,7 @@ body {
   font-family: Arial, Helvetica, sans-serif; }
 
 .matheditor .matheditor-toolbar {
-  margin-bottom: 0.5em; }
+  margin-bottom: 1px; }
   .matheditor .matheditor-toolbar input[type=button] {
     margin-right: 0.25em;
     border: 1px solid #c0c0c0;
