@@ -149,7 +149,7 @@ var MathEditor = {
         this.addButton('alpha', 'x', function() {}, 0);
         this.addButton('beta', 'x', function() {}, 0);
         this.addButton('pi', 'x', function() {}, 0);
-        this.addButton('der', 'x', function() {}, 0); // 
+        this.addButton('dx', 'x', function() {}, 0); // 
         this.addButton('int', 'x', function() {}, 0); // int_0^1 f(x)dx
         this.addButton('sin', 'x', function() {}, 0);
         this.addButton('cos', 'x', function() {}, 0);
