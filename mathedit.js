@@ -26,7 +26,7 @@ var MathEditor = {
         btn.type = 'button';
         btn.className = 'matheditor-action';
         btn.onclickaction = action;
-        btn.matheditor = this._data.element.matheditor;
+        btn.matheditor = this.matheditor;
 
         btn.value = title;
         btn.innerHTML = '<i class="todo"></i> ' + title;
@@ -118,7 +118,6 @@ var MathEditor = {
         editorParent.appendChild(toolbar);
 
         editorParent.appendChild(element);
-        editorParent.style.border = '2px solid green';
 
         var preview = document.createElement('div');
         preview.className = 'matheditor-preview';
@@ -138,20 +137,34 @@ var MathEditor = {
             });
         }
         element.matheditor.addToolbar();
+
+        element.matheditor.redraw();
     },
     addToolbar: function() {
-        /*this.addButton(function() {}, 'testi', 'x', 0);
+        //this.addButton(function(e) {e.selectionInsert('`', '`')}, 'testi', 'x', 0);
         this.addButton(function() {}, 'testi', 'x', 0);
         this.addButton(function() {}, 'testi', 'x', 0);
         this.addButton(function() {}, 'testi', 'x', 0);
         this.addButton(function() {}, 'testi', 'x', 0);
         this.addButton(function() {}, 'testi', 'x', 0);
-*/
     },
     redraw: function() {
         //this._data.previewElement.textContent = this._data.editor.value;
         this._data.previewElement.innerHTML = this._data.editor.value.replace(/\r?\n/g, '<br />');
         MathJax.Hub.Queue(["Typeset", MathJax.Hub, this._data.previewElement]);
+    },
+    selectionInsert: function (myValueBefore, myValueAfter) {
+        //var myField = document.getElementById(e);
+        var myField = this._data.editor;
+        if (document.selection) {
+            myField.focus();
+            document.selection.createRange().text = myValueBefore + document.selection.createRange().text + myValueAfter;
+        } else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            myField.value = myField.value.substring(0, startPos)+ myValueBefore+ myField.value.substring(startPos, endPos)+ myValueAfter+ myField.value.substring(endPos, myField.value.length);
+            this.redraw();
+        } 
     },
     _clone: function(obj) {
         if (null == obj || "object" != typeof obj) return obj;
