@@ -14,13 +14,44 @@ var MathEditor = {
         toolbar: [],
     },
     settings: {},
-    addButton: function(action, icon, order) {
+    addButton: function(action, title, icon, order) {
         var button = {
             action: action,
             icon: icon,
-            order: order
+            order: order,
+            title: title
         };
         this._data.toolbar.push(button);
+        var btn = document.createElement('input');
+        btn.type = 'button';
+        btn.className = 'matheditor-action';
+        btn.onclickaction = action;
+        btn.matheditor = this._data.element.matheditor;
+
+        btn.value = title;
+        btn.innerHTML = '<i class=""></i> ' + title;
+
+        if (typeof btn.addEventListener != 'undefined') {
+            btn.addEventListener('click', function(e) {
+                if (typeof e.srcElement.onclickaction != 'undefined') {
+                    e.srcElement.onclickaction();
+                } else {
+                    console.log('No action specified');
+                }
+                return false;
+            }, false);
+        } else if (typeof btn.attachEvent != 'undefined') {
+            btn.attachEvent('click', function(e) {
+                if (typeof e.srcElement.onclickaction != 'undefined') {
+                    e.srcElement.onclickaction();
+                } else {
+                    console.log('No action specified');
+                }
+                return false;
+            });
+        }
+
+        this._data.toolbarElement.appendChild(btn);
     },
     removeButton: function(i) {
         this._data.toolbar.splice(i, 1);
