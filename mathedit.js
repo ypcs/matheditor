@@ -14,7 +14,7 @@ var MathEditor = {
         toolbar: [],
     },
     settings: {},
-    addButton: function(action, title, icon, order) {
+    addButton: function(title, icon, action, order) {
         var button = {
             action: action,
             icon: icon,
