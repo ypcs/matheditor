@@ -87,6 +87,7 @@ var MathEditor = {
         element.matheditor._data.previewElement = preview;
         editorParent.appendChild(preview);
 
+        // TODO: Attach only to specific keys (space, enter, ?)
         if (typeof element.addEventListener != 'undefined') {
             element.addEventListener('keyup', function(e) {
                 //console.log('keyup: ' + e.keyCode); 
