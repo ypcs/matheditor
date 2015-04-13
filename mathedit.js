@@ -144,18 +144,24 @@ var MathEditor = {
     addToolbar: function() {
         //this.addButton(function(e) {e.selectionInsert('`', '`')}, 'testi', 'x', 0);
         
-        this.addButton('fn', 'x', function() {}, 0);
-        this.addButton('fn', 'x', function() {}, 0);
-        this.addButton('alpha', 'x', function() {}, 0);
-        this.addButton('beta', 'x', function() {}, 0);
-        this.addButton('pi', 'x', function() {}, 0);
-        this.addButton('dx', 'x', function() {}, 0); // 
-        this.addButton('int', 'x', function() {}, 0); // int_0^1 f(x)dx
-        this.addButton('sin', 'x', function() {}, 0);
-        this.addButton('cos', 'x', function() {}, 0);
-        this.addButton('tan', 'x', function() {}, 0);
-        this.addButton('-->', 'x', function() {}, 0);
-        this.addButton('fn', 'x', function() {}, 0);
+        this.addButton('fn', 'x', function(e) {
+            MathEditor.selectionInsert('`', '`');
+        }, 0);
+        /*this.addButton('fn', 'x', function(e) {
+            MathEditor.selectionInsert('`', '`');
+        }, 0);*/
+        this.addButton('alpha', 'x', function(e) {
+            MathEditor.selectionInsert('', 'alpha');
+        }, 0);
+        this.addButton('beta', 'x', function(e) {}, 0);
+        this.addButton('pi', 'x', function(e) {MathEditor.selectionInsert('', 'pi');}, 0);
+        this.addButton('dx', 'x', function(e) {MathEditor.selectionInsert('', 'dx');}, 0); // 
+        this.addButton('int', 'x', function(e) {MathEditor.selectionInsert('', 'int_0^1 f(x) dx');}, 0); // int_0^1 f(x)dx
+        this.addButton('sin', 'x', function(e) {MathEditor.selectionInsert('', 'sin');}, 0);
+        this.addButton('cos', 'x', function(e) {MathEditor.selectionInsert('', 'cos');}, 0);
+        this.addButton('tan', 'x', function(e) {MathEditor.selectionInsert('', 'tan');}, 0);
+        this.addButton('-->', 'x', function(e) {MathEditor.selectionInsert('', 'rarr');}, 0);
+        this.addButton('fn', 'x', function(e) {}, 0);
         
     },
     redraw: function() {
@@ -164,8 +170,8 @@ var MathEditor = {
         MathJax.Hub.Queue(["Typeset", MathJax.Hub, this._data.previewElement]);
     },
     selectionInsert: function (myValueBefore, myValueAfter) {
-        //var myField = document.getElementById(e);
-        var myField = this._data.editor;
+        var myField = document.getElementById('editor');
+        //var myField = this._data.editor;
         if (document.selection) {
             myField.focus();
             document.selection.createRange().text = myValueBefore + document.selection.createRange().text + myValueAfter;
