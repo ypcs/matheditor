@@ -118,6 +118,11 @@ var MathEditor = {
         element.matheditor._data.toolbarElement = toolbar;
         editorParent.appendChild(toolbar);
 
+        var help = document.createElement('p');
+        help.className = 'matheditor-help';
+        help.textContent = 'HUOM: Kaavat tulee kirjoittaa `-merkkien sisään. Ohjeita syntaksista voit katsoa osoitteesta asciimath.org.';
+        editorParent.appendChild(help);
+
         editorParent.appendChild(element);
 
         var preview = document.createElement('div');
